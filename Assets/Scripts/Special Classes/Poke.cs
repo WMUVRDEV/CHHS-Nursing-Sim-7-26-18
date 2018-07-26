@@ -18,7 +18,7 @@ public class Poke : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        Debug.Log(other.gameObject.name);
+        //Debug.Log(other.gameObject.name);
         if (other.tag == "poke")
         {
             PokeEvent.Invoke();

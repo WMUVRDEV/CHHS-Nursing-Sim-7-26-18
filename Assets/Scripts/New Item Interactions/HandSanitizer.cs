@@ -19,7 +19,7 @@ public class HandSanitizer : ItemInteraction
     public bool dispensing;
     public bool leftSanitized;
     public bool rightSanitized;
-    private string activeHand;
+    public string activeHand;
 
     public GameObject colliderCube;
     private GameObject newCCube;
@@ -35,7 +35,7 @@ public class HandSanitizer : ItemInteraction
 
     private void OnTriggerEnter(Collider other)
     {
-        // Debug.Log(other.gameObject.name);
+        Debug.Log(other.gameObject.name);
 
         if (other.gameObject.name == "Sphere")
         {
@@ -51,13 +51,14 @@ public class HandSanitizer : ItemInteraction
         {
             activeHand = "Right";
             Dispense();
+            Debug.Log("Right");
         }
 
         else if (other.transform.parent.transform.parent.name == "LeftController")
         {
             activeHand = "Left";
             Dispense();
-
+            Debug.Log("Left");
         }
 
         
@@ -75,7 +76,7 @@ public class HandSanitizer : ItemInteraction
         sanitizerParticles.Stop();
         if (newCCube != null)
         {
-            Destroy(newCCube);
+            Destroy(newCCube, 1);
         }
     }
 

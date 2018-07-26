@@ -12,6 +12,7 @@ public class PokedButton : MonoBehaviour {
 
     private void OnEnable()
     {
+        thisButton = GetComponent<Button>();
         cb = thisButton.colors;
         cb.normalColor = baseColor;
         thisButton.colors = cb;

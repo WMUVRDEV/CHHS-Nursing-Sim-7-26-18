@@ -8,45 +8,50 @@ public class PokeZone : MonoBehaviour {
     public GameObject rightHandPointerPose;
     private GameObject tipOfPointerFinger;
 
-    public void OnTriggerEnter()
+    public void OnTriggerEnter(Collider other)
     {
-        avatar.RightHandCustomPose = rightHandPointerPose.transform;
 
-        if (rightHandPointerPose == null) { Debug.Log("Custom Hand Is Null"); }
-
-        if (avatar.RightHandCustomPose != null) { Debug.Log("Right Hand Present"); }
-
-        if (GameObject.Find("hands:b_r_index_ignore") != null)
+        if (other.gameObject.name == "Sphere")
         {
-            tipOfPointerFinger = GameObject.Find("hands:b_r_index_ignore");
-            tipOfPointerFinger.tag = "poke";
-            Collider tipCollider = tipOfPointerFinger.GetComponent<SphereCollider>();
 
-            if (tipCollider == null)
+            avatar.RightHandCustomPose = rightHandPointerPose.transform;
+
+            if (rightHandPointerPose == null) { Debug.Log("Custom Hand Is Null"); }
+
+            if (avatar.RightHandCustomPose != null) { Debug.Log("Right Hand Present"); }
+
+            if (GameObject.Find("hands:b_r_index_ignore") != null)
             {
-                tipOfPointerFinger.AddComponent<SphereCollider>().radius = 0.01f;
+                tipOfPointerFinger = GameObject.Find("hands:b_r_index_ignore");
+                tipOfPointerFinger.tag = "poke";
+                Collider tipCollider = tipOfPointerFinger.GetComponent<SphereCollider>();
 
-            }
-
-            else
-            {
-                Rigidbody fingerRB = tipOfPointerFinger.AddComponent<Rigidbody>();
-                if (fingerRB != null)
+                if (tipCollider == null)
                 {
-                    fingerRB.isKinematic = true;
-                    fingerRB.useGravity = false;
-                    tipOfPointerFinger.AddComponent<DetectCollision>();
+                    tipOfPointerFinger.AddComponent<SphereCollider>().radius = 0.01f;
+
+                }
+
+                else
+                {
+                    Rigidbody fingerRB = tipOfPointerFinger.AddComponent<Rigidbody>();
+                    if (fingerRB != null)
+                    {
+                        fingerRB.isKinematic = true;
+                        fingerRB.useGravity = false;
+                        tipOfPointerFinger.AddComponent<DetectCollision>();
+                    }
                 }
             }
+
+            else if (GameObject.Find("hands:b_r_index_ignore") == null)
+            {
+                Debug.Log("Index Finger Not Found");
+
+            }
+
+            // StartCoroutine(WaitTime());
         }
-
-        else if (GameObject.Find("hands:b_r_index_ignore") == null)
-        {
-            Debug.Log("Index Finger Not Found");
-
-        }
-
-        // StartCoroutine(WaitTime());
     }
 
     public void OnTriggerExit()

@@ -17,7 +17,9 @@ public class FollowParentObject : MonoBehaviour {
 
         if (myParent != null)
         {
-            transform.position = myParent.transform.position;
+           // transform.position = myParent.transform.position.x;
+            transform.position = new Vector3(myParent.transform.position.x, myParent.transform.position.y - 0.076f, myParent.transform.position.z);
+
         }
     }
 }

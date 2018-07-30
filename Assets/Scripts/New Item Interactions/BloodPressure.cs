@@ -84,10 +84,6 @@ public class BloodPressure : ItemInteraction {
             bloodPressureDisplay.text = "Starting";
             StartCoroutine(BpReady());
         }
-/*        else{
-            screenMat.SetColor("_EmissionColor", Color.black); 
-            bloodPressureDisplay.text = "";
-        }*/
 		    
         if (BPMachineLabel !=null){
             BPMachineLabel.labeledObjectGrabbed = true;

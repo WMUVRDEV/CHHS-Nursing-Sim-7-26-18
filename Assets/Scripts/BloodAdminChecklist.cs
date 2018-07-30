@@ -29,6 +29,8 @@ public class BloodAdminChecklist : MonoBehaviour {
 
     public bool inspectBlood;
 
+    public bool checklistConplete;
+
     public void OnEnable()
     {
         pageNumber = 0;

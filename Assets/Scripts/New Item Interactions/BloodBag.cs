@@ -6,16 +6,23 @@ public class BloodBag : ItemInteraction {
 
     public Canvas bloodAdminCanvas;
     public GameObject checklist;
+    public BloodAdminChecklist checklistScript;
 
     void Start()
     {
+
+        checklistScript = checklist.GetComponent<BloodAdminChecklist>();
         checklist.SetActive(false);
     }
 
     public override void Grabbed()
     {
-      //  base.Grabbed();
-        checklist.SetActive(true);
+        //  base.Grabbed();
+
+        if (!checklistScript.checklistComplete)
+        {
+            checklist.SetActive(true);
+        }
 
        // checklist.GetComponent<BloodAdminChecklist>().SetStart();
         // StartCoroutine(BloodBagWait());
@@ -24,6 +31,7 @@ public class BloodBag : ItemInteraction {
      public void ChecklistComplete()
     {
         checklist.SetActive(false);
+        checklistConplete = true;
     }
 
 

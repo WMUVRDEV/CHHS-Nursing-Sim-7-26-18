@@ -60,7 +60,7 @@ public class Thermometer : ItemInteraction {
    
     IEnumerator ReadTemp()
     {
-        thisAudio.Play();
+       // thisAudio.Play();
         thermometerDisplayText.text = ("-");
         yield return new WaitForSeconds(0.66f);
         thermometerDisplayText.text = ("- -");

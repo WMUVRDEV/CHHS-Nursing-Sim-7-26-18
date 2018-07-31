@@ -9,6 +9,9 @@ public class SpawnSettings : MonoBehaviour
     GameObject LocalAvatObj;
     GameObject VRTKObj;
 
+    Transform VRTKTrans;
+    Transform Local;
+
     public bool leftBedSpawn = false;
     public bool rightBedSpawn = false;
 
@@ -20,6 +23,8 @@ public class SpawnSettings : MonoBehaviour
     {
         LocalAvatObj = GameObject.Find("LocalAvatar");
         VRTKObj = GameObject.Find("VRTK");
+        VRTKTrans = VRTKObj.transform;
+        Local = LocalAvatObj.transform;
         CheckNull(VRTKObj);
         CheckNull(LocalAvatObj);
         spawnPoint();
@@ -38,7 +43,9 @@ public class SpawnSettings : MonoBehaviour
         {
             rightBedSpawn = false;
             LocalAvatObj.transform.position = leftBedDest.transform.position;
+            LocalAvatObj.transform.rotation = leftBedDest.transform.rotation;
             VRTKObj.transform.position = leftBedDest.transform.position;
+            VRTKObj.transform.rotation = leftBedDest.transform.rotation;
             leftBedDest.SetActive(false);
             Debug.Log("Left spawn point selected");
         }
@@ -48,7 +55,9 @@ public class SpawnSettings : MonoBehaviour
             leftBedSpawn = false;
             rightBedDest.SetActive(false);
             LocalAvatObj.transform.position = rightBedDest.transform.position;
+            LocalAvatObj.transform.rotation = rightBedDest.transform.rotation;
             VRTKObj.transform.position = rightBedDest.transform.position;
+            VRTKObj.transform.rotation = rightBedDest.transform.rotation;
             Debug.Log("Right spawn point selected");
         }
 
@@ -60,20 +69,28 @@ public class SpawnSettings : MonoBehaviour
 
     void CheckAvatarTransform()
     {
-        if (rightBedSpawn == true)
+        if (rightBedDest.activeInHierarchy == false)
         {
             if (LocalAvatObj.transform.position.z > -.4f)
             {
                 rightBedDest.SetActive(true);
+                //LocalAvatObj.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+               // VRTKObj.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                Debug.Log("VRTK Transform" + VRTKObj.transform.rotation);
+                Debug.Log("Local Avatar Transform: " + LocalAvatObj.transform.rotation);
                 LocalAvatObj.GetComponent<SpawnSettings>().enabled = false;
             }
         }
 
-        else if (leftBedSpawn == true)
+        else if (leftBedDest.activeInHierarchy == false)
         {
             if (LocalAvatObj.transform.position.z < .9f)
             {
                 leftBedDest.SetActive(true);
+               //LocalAvatObj.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+               // VRTKObj.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                Debug.Log("VRTK Transform" + VRTKObj.transform.rotation);
+                Debug.Log("Local Avatar Transform: " + LocalAvatObj.transform.rotation);
                 LocalAvatObj.GetComponent<SpawnSettings>().enabled = false;
             }
         }

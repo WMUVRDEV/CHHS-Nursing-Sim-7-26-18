@@ -64,7 +64,8 @@ public class BloodPressure : ItemInteraction {
     
     void Start()
     {
-        screenMat.SetColor("_EmissionColor", Color.black); 
+        screenMat.SetColor("_EmissionColor", Color.black);
+        bloodPressureDisplay.text = " ";
     }
     
     public void BPCuffAttached()
@@ -110,7 +111,14 @@ public class BloodPressure : ItemInteraction {
             thisAudio.Play();
             StartCoroutine(ReadBloodPressure());
         }
-            
+
+        else 
+        {
+            bloodPressureDisplay.text = "Cuff Not Attached";
+            //thisAudio.Play();
+            //StartCoroutine(ReadBloodPressure());
+        }
+
         // what do we do if the cuff is not attached
     }
     

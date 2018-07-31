@@ -63,4 +63,9 @@ public class PokeZone : MonoBehaviour {
     }
 
 
+    private void OnDisable()
+    {
+        avatar.RightHandCustomPose = null;
+    }
+
 }

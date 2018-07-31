@@ -38,7 +38,7 @@ public class OxygenReader : ItemInteraction {
 
     IEnumerator ReadingOxy()
     {
-        thisAudio.Play();
+    //    thisAudio.Play();
         oxyDisplayText.text = ("-");
         yield return new WaitForSeconds(0.66f);
         oxyDisplayText.text = ("- -");
@@ -51,7 +51,7 @@ public class OxygenReader : ItemInteraction {
 
         if (oxyBeingRead)  {
             oxyBeingRead = false;
-            oxyDisplayText.text = ("OxyLVL 99%");
+            oxyDisplayText.text = ("Oxylvl 99%");
             oxyIsRead = true;
             Task.isComplete = true;
             Task.CheckTasks(true);

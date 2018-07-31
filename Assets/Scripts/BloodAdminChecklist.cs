@@ -29,7 +29,7 @@ public class BloodAdminChecklist : MonoBehaviour {
 
     public bool inspectBlood;
 
-    public bool checklistConplete;
+    public bool checklistComplete;
 
     public void OnEnable()
     {

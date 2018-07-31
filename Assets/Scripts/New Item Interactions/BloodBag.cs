@@ -31,7 +31,7 @@ public class BloodBag : ItemInteraction {
      public void ChecklistComplete()
     {
         checklist.SetActive(false);
-        checklistConplete = true;
+        checklistScript.checklistComplete = true;
     }
 
 

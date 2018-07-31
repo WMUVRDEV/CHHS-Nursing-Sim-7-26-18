@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PokedButton : MonoBehaviour {
 
+    public HapticsTest haptics = new HapticsTest();
+
     public Button thisButton;
     public Color pressedColor;
     public Color baseColor;
@@ -16,6 +18,7 @@ public class PokedButton : MonoBehaviour {
         cb = thisButton.colors;
         cb.normalColor = baseColor;
         thisButton.colors = cb;
+        haptics.hapticsClip = Resources.Load<AudioClip>("Select2");
     }
 
     void Start()
@@ -33,6 +36,8 @@ public class PokedButton : MonoBehaviour {
         //Debug.Log("Poke");
         cb.normalColor = pressedColor;
         thisButton.colors = cb;
+       
+        haptics.PlayHaptics();
        // thisButton.onClick.Invoke();
     }
 

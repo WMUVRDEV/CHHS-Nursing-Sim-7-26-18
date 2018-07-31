@@ -61,12 +61,18 @@ public class Thermometer : ItemInteraction {
     IEnumerator ReadTemp()
     {
        // thisAudio.Play();
-        thermometerDisplayText.text = ("-");
-        yield return new WaitForSeconds(0.66f);
-        thermometerDisplayText.text = ("- -");
-        yield return new WaitForSeconds(0.66f);
-        thermometerDisplayText.text = ("- - -");
-        yield return new WaitForSeconds(0.66f);
+        thermometerDisplayText.text = (". . .");
+        yield return new WaitForSeconds(0.33f);
+        thermometerDisplayText.text = ("");
+        yield return new WaitForSeconds(0.33f);
+        thermometerDisplayText.text = (". . .");
+        yield return new WaitForSeconds(0.3f);
+        thermometerDisplayText.text = ("");
+        yield return new WaitForSeconds(0.33f);
+        thermometerDisplayText.text = (". . .");
+        yield return new WaitForSeconds(0.3f);
+        thermometerDisplayText.text = ("");
+        yield return new WaitForSeconds(0.33f);
         thisAudio.clip = readClip;
         thisAudio.Play();
 

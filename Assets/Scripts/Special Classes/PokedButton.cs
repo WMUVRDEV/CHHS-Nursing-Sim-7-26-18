@@ -30,15 +30,15 @@ public class PokedButton : MonoBehaviour {
     public void pokedButton()
     {
 
-        Debug.Log("Poke");
+        //Debug.Log("Poke");
         cb.normalColor = pressedColor;
         thisButton.colors = cb;
-        thisButton.onClick.Invoke();
+       // thisButton.onClick.Invoke();
     }
 
     public void unPokedButton()
     {
-        Debug.Log("unPoke");
+       // Debug.Log("unPoke");
         cb.normalColor = baseColor;
         thisButton.colors = cb;
     }

@@ -17,12 +17,15 @@ public class ConsentForm : ItemInteraction {
     public Texture2D formBlank;
     public Texture2D formSigned;
     public Material[] CurMaterial;
+    public GameObject pen;
     
     public PlayableDirector playable;
     
     void Start()
     {
-        formMat.mainTexture = formBlank;  
+        formMat.mainTexture = formBlank;
+        pen = GameObject.Find("Pen");
+        pen.SetActive(false);
     }
     
     public override void Grabbed()
@@ -34,6 +37,7 @@ public class ConsentForm : ItemInteraction {
     {
         thisAudio.Stop();
         isSigning = false;
+        pen.SetActive(false);
     }
 
     public override void Snapped (){
@@ -45,6 +49,7 @@ public class ConsentForm : ItemInteraction {
             if (thisAudio !=null){
                 thisAudio.Play();
                 StartCoroutine(Signing());
+                pen.SetActive(true);
             }
         }
         else {

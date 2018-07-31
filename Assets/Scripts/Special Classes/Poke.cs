@@ -14,21 +14,28 @@ public class Poke : MonoBehaviour
 	public UnityEvent UnpokeEvent;
 	public VRTK_InteractTouch touch;
 	public GameObject me;
+    public bool inTrigger;
 
     private void OnTriggerEnter(Collider other)
     {
 
         //Debug.Log(other.gameObject.name);
-        if (other.tag == "poke")
+        if (other.tag == "poke" && !inTrigger)
         {
+            inTrigger = true;
             PokeEvent.Invoke();
-            Debug.Log(gameObject.name + " " + other.name);
+            Debug.Log("Poke " + gameObject.name);
         }
-
     }
 
-	private void OnTriggerExit(Collider other)
+    private void OnTriggerStay(Collider other)
+    {
+        //inTrigger = true;
+    }
+
+    private void OnTriggerExit(Collider other)
 	{
 		UnpokeEvent.Invoke();
+        inTrigger = false;
 	}
 }

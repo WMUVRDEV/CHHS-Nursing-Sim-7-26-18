@@ -319,7 +319,7 @@
 	       
             if (currentLineNumber == 2)
             {
-                thisAudio.Play();
+                //thisAudio.Play();
                 currentLineNumber = 1;
                 sigmaLineOne.text = (">>Choice1");
                 sigmaLineTwo.text = ("   IV Fluids");
@@ -328,7 +328,7 @@
             }
             else if (currentLineNumber == 3)
             {
-                thisAudio.Play();
+                //thisAudio.Play();
                 currentLineNumber = 2;
                 sigmaLineOne.text = ("   Choice1");
                 sigmaLineTwo.text = (">>IV Fluids");
@@ -338,7 +338,7 @@
             }
             else if (currentLineNumber == 4)
             {
-                thisAudio.Play();
+                //thisAudio.Play();
                 currentLineNumber = 3;
                 sigmaLineOne.text = ("   Choice1");
                 sigmaLineTwo.text = ("   IV Fluids");
@@ -352,7 +352,7 @@
         {
             if (currentLineNumber == 2)
             {
-                thisAudio.Play();
+                //thisAudio.Play();
                 currentLineNumber = 1;
                 sigmaFlowAmount.text = (">>" + flowNumA);
                 sigmaFlowX.text = flowNumB;
@@ -361,7 +361,7 @@
             }
             else if (currentLineNumber == 3)
             {
-                thisAudio.Play();
+                //thisAudio.Play();
                 currentLineNumber = 2;
                 sigmaFlowAmount.text = flowNumA;
                 sigmaFlowX.text = ">>" + flowNumB;
@@ -379,7 +379,7 @@
         {
             if (currentLineNumber == 1)
             {
-                thisAudio.Play();
+                //thisAudio.Play();
                 currentLineNumber = 2;
                 sigmaLineOne.text = ("   Choice1");
                 sigmaLineTwo.text = (">>IV Fluids");
@@ -391,7 +391,7 @@
 
             else if (currentLineNumber == 2)
             {
-                thisAudio.Play();
+                //thisAudio.Play();
                 currentLineNumber = 3;
                 sigmaLineOne.text = ("   Choice1");
                 sigmaLineTwo.text = ("   IV Fluids");
@@ -400,7 +400,7 @@
             }
             else if (currentLineNumber == 3)
             {
-                thisAudio.Play();
+                //thisAudio.Play();
                 currentLineNumber = 4;
                 sigmaLineOne.text = ("   Choice1");
                 sigmaLineTwo.text = ("   IV Fluids");
@@ -413,7 +413,7 @@
         {
             if (currentLineNumber == 1)
             {
-                thisAudio.Play();
+                //thisAudio.Play();
                 currentLineNumber = 2;
                 sigmaFlowAmount.text = flowNumA;
                 sigmaFlowX.text = ">>"+flowNumB;
@@ -424,7 +424,7 @@
 
             else if (currentLineNumber == 2)
             {
-                thisAudio.Play();
+                //thisAudio.Play();
                 currentLineNumber = 3;
                 sigmaFlowAmount.text = flowNumA;
                 sigmaFlowX.text = flowNumB;
@@ -453,7 +453,7 @@
 	    	if (OnSigmaScreenOne && ivFlowSelected){
 		    	Debug.Log("Enter");
 		    	pageOne = false;
-		    	thisAudio.Play();
+		    	//thisAudio.Play();
 		    	currentLineNumber = 1;
 		    	sigmaLineOne.text = ("Flow Rate");
 		    	sigmaLineTwo.text = ("");
@@ -475,8 +475,6 @@
 		    if (!correctFlowSelected && OnSigmaScreenTwo){
 	    		sigmaLineTwo.text = ("Flow Set Wrong");
 	    	}
-	    
-	    
 	    }
     
     
@@ -552,7 +550,7 @@
 
         public void ClickKey(string character)
         {
-            thisAudio.Play();
+            //thisAudio.Play();
             input.text += character;
             testText.text += character;
         }

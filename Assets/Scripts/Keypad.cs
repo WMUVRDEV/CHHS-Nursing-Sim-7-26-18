@@ -6,7 +6,7 @@
     {
         public InputField input;
         public Text testText;
-        public AudioSource thisAudio;
+       // public AudioSource thisAudio;
         public string correctCode;
         public ivInteractions ivSystem;
 
@@ -18,7 +18,7 @@
 
     public void ClickKey(string character)
         {
-            thisAudio.Play();
+       //     thisAudio.Play();
             input.text += character;
             testText.text += character;
         }

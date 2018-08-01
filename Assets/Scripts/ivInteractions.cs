@@ -186,8 +186,11 @@
 		    if (spikeName == "SpikeA" && !spikeAClampIsOpen){
 			    if (bloodHose1 == hoseSpikeA){
 				    hoseSpikeA.GetComponent<Renderer>().material = bloodMat;
-                     Debug.Log("hoseSpikeA");
-				    filter.GetComponent<Renderer>().material = bloodMat;
+                offset = 0.5f;
+                InvokeRepeating("BloodAnimationA", 0.0f, .1f);
+
+
+                filter.GetComponent<Renderer>().material = bloodMat;
 				    hoseFilterToClip.GetComponent<Renderer>().material = bloodMat;
 				    hoseClipToLowerClamp.GetComponent<Renderer>().material = bloodMat;
 				    bloodSwitchOpen = true;	
@@ -282,6 +285,16 @@
         if (offset <= 0.0)
         {
             CancelInvoke("BloodAnimation");
+        }
+    }
+
+    public void BloodAnimationA()
+    {
+        offset -= 0.01f;
+        hoseSpikeB.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(0, offset);
+        if (offset <= 0.0)
+        {
+            CancelInvoke("BloodAnimationA");
         }
     }
 

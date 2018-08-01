@@ -28,6 +28,7 @@ TagManager:
   - arms
   - end
   - poke
+  - Barcode
   layers:
   - Default
   - TransparentFX

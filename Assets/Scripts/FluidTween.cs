@@ -5,9 +5,10 @@ using UnityEngine;
 public class FluidTween : MonoBehaviour {
     //public Material Saline;
     public Renderer rend;
+    public Material thisMat;
     public float fillSpeed;
     public bool toggle = true;
-    float offset;
+    public  float offset = 0.0f;
     int count = 0;
 
     public bool on = false;
@@ -16,17 +17,13 @@ public class FluidTween : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rend = GetComponent<Renderer>();
-        //InvokeRepeating("SalineAnimation", time: 1, repeatRate: .001f);
-        //if(offset < -.5f)
-        //{
-        //    CancelInvoke("SalineAnimation");
-        //}
+        StartRepeating();
     }
 
     // Update is called once per frame
     void Update () {
 
-        if (offset < -.5f)
+        if (offset >= 0.5)
         {
             CancelInvoke("SalineAnimation");
         }
@@ -34,12 +31,14 @@ public class FluidTween : MonoBehaviour {
 
     public void SalineAnimation()
     {
-        offset = Time.time * (-fillSpeed);
-        rend.material.mainTextureOffset = new Vector2(0, offset);
+       // offset = Time.time * (-fillSpeed);
+        offset += 0.001f;
+        thisMat.mainTextureOffset = new Vector2(0, offset);
     }
 
     public void StartRepeating()
     {
-        InvokeRepeating("SalineAnimation", time: 1, repeatRate: .001f);
+        Debug.Log("Repeating");
+        InvokeRepeating("SalineAnimation", 0.0f, .1f);
     }
 }

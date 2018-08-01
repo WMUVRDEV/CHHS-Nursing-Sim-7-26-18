@@ -29,15 +29,15 @@ public class Wristband : ItemInteraction {
 
   public  void clickedButton()
     {
-        Checklist.SetActive(false);
+        StartCoroutine(HideChecklist()); 
         Task.CheckTasks(true);
     }
 	
-	IEnumerator ReadWrist()
+	IEnumerator HideChecklist()
 	{
-        yield return new WaitForSeconds(20.0f);
+        yield return new WaitForSeconds(0.25f);
         Checklist.SetActive(false);
-        Task.CheckTasks(true);
+       // Task.CheckTasks(true);
 	}
 
 }

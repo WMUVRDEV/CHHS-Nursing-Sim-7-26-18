@@ -13,7 +13,6 @@ public class PokeZone : MonoBehaviour {
 
         if (other.gameObject.name == "Sphere")
         {
-
             avatar.RightHandCustomPose = rightHandPointerPose.transform;
 
             if (rightHandPointerPose == null) { Debug.Log("Custom Hand Is Null"); }
@@ -47,19 +46,19 @@ public class PokeZone : MonoBehaviour {
             else if (GameObject.Find("hands:b_r_index_ignore") == null)
             {
                 Debug.Log("Index Finger Not Found");
-
             }
-
-            // StartCoroutine(WaitTime());
         }
     }
 
     public void OnTriggerExit()
     {
         avatar.RightHandCustomPose = null;
-        tipOfPointerFinger.tag = "Untagged";
-        Destroy(tipOfPointerFinger.GetComponent<BoxCollider>());
-        Destroy(tipOfPointerFinger.GetComponent<Rigidbody>());
+        if (tipOfPointerFinger != null)
+        {
+            tipOfPointerFinger.tag = "Untagged";
+            Destroy(tipOfPointerFinger.GetComponent<BoxCollider>());
+            Destroy(tipOfPointerFinger.GetComponent<Rigidbody>());
+        }
     }
 
 

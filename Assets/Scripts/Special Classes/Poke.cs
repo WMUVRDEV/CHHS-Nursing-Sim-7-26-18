@@ -18,13 +18,12 @@ public class Poke : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        Debug.Log(other.name);
         //Debug.Log(other.gameObject.name);
         if (other.tag == "poke" && !inTrigger)
         {
             inTrigger = true;
             PokeEvent.Invoke();
-            Debug.Log("Poke " + gameObject.name);
         }
     }
 
@@ -36,6 +35,9 @@ public class Poke : MonoBehaviour
     private void OnTriggerExit(Collider other)
 	{
 		UnpokeEvent.Invoke();
-        inTrigger = false;
+        if (other.tag == "poke")
+        {
+            inTrigger = false;
+        }
 	}
 }

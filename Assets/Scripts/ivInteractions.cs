@@ -110,8 +110,9 @@
 
         public float animTime;
 	    
-
         public bool pageOne;
+
+    public float offset;
 
 
 
@@ -185,6 +186,7 @@
 		    if (spikeName == "SpikeA" && !spikeAClampIsOpen){
 			    if (bloodHose1 == hoseSpikeA){
 				    hoseSpikeA.GetComponent<Renderer>().material = bloodMat;
+                     Debug.Log("hoseSpikeA");
 				    filter.GetComponent<Renderer>().material = bloodMat;
 				    hoseFilterToClip.GetComponent<Renderer>().material = bloodMat;
 				    hoseClipToLowerClamp.GetComponent<Renderer>().material = bloodMat;
@@ -229,7 +231,9 @@
 		    if (spikeName == "SpikeB" && !spikeBClampIsOpen){
 			    if (bloodHose1 == hoseSpikeB){
 				    hoseSpikeB.GetComponent<Renderer>().material = bloodMat;
-				    filter.GetComponent<Renderer>().material = bloodMat;
+                offset = 0.5f;
+                InvokeRepeating("BloodAnimation", 0.0f, .1f);
+                filter.GetComponent<Renderer>().material = bloodMat;
 				    hoseFilterToClip.GetComponent<Renderer>().material = bloodMat;
 				    hoseClipToLowerClamp.GetComponent<Renderer>().material = bloodMat;
 				    bloodSwitchOpen = true;	
@@ -271,7 +275,19 @@
 
          }
 
-         public void IVAttached(){
+    public void BloodAnimation()
+    {
+        offset -= 0.01f;
+        hoseSpikeB.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(0, offset);
+        if (offset <= 0.0)
+        {
+            CancelInvoke("BloodAnimation");
+        }
+    }
+
+
+
+    public void IVAttached(){
 	         ivAttachedtoArm = true;
        
     			
@@ -529,7 +545,8 @@
                 bloodHose2 = TubeB2;
              // bloodHose1.GetComponent<Renderer>().material = bloodMat;
                 SpikeB.GetComponent<Renderer>().material = bloodMat;
-                bloodLineClamp=2;
+            Debug.Log("SpikeB");
+            bloodLineClamp =2;
             }  
             else if (bagName == "SalineBagSnapZone" && spikeName == "SpikeB"){
               //salineHose1 = TubeB1;

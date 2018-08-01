@@ -8,13 +8,17 @@ using UnityEngine.XR.WSA.WebCam;
 public class TaskManager : MonoBehaviour {
 	
 	public static TaskManager instance;
-	
-	void Awake()
+    public GameObject canvas;
+
+
+    void Awake()
 	{
 		instance = this;
-//	    Debug.Log(xTasks.Count());
-	   // GameObject	newPipe = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-	}
+        //	    Debug.Log(xTasks.Count());
+        // GameObject	newPipe = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        //canvas = GameObject.Find("Critical_Task_Missed");
+
+    }
 	
 
     public string taskGroupName;
@@ -28,25 +32,29 @@ public class TaskManager : MonoBehaviour {
 
     void Start()
     {
-       // xTasks = FindObjectOfType<ItemInteraction>();
-       
+        // xTasks = FindObjectOfType<ItemInteraction>();
     }
     
     public void CheckTasks(Task currentTask)
     
     {
-        
+       
       //  Debug.Log("currentTask "+ currentTask.taskName);
       //  Debug.Log(xTasks.Count());
         
         
         foreach (ItemInteraction task in Tasks)
         {
-
+            
 
             if (!task.Task.isComplete)
             {
-                if (currentTask.taskNumber > task.Task.taskNumber)
+                if(currentTask.taskNumber > task.Task.taskNumber && task.Task.criticalTask == true)
+                {
+                    Debug.Log("You Missed a Critical Task!");
+                    canvas.SetActive(true);
+                }
+                else if (currentTask.taskNumber > task.Task.taskNumber)
                 {
                     Debug.Log("Task# " + task.Task.taskNumber + " : " + task.Task.taskName +
                               " should have been completed before " + currentTask.taskName);

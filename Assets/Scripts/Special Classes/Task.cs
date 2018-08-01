@@ -5,6 +5,7 @@ public class Task : System.Object
 {
 	public int taskNumber;
 	public bool isComplete;
+    public bool criticalTask;
 	public string taskName;
 	//public xTask thisTask;
 	
@@ -19,7 +20,11 @@ public class Task : System.Object
 		
 		if (thisTask != null)
 		{
+           
 			TaskManager.instance.CheckTasks(thisTask);
 		}
+  
+
 	}
+
 }

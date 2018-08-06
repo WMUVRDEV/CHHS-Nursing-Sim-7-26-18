@@ -19,7 +19,7 @@ public class TrachTube : ItemInteraction {
 
     public bool innerCanullaSubmerged;
 
-    float currCountdownValue;
+   
 
     void Start()
     {
@@ -50,20 +50,7 @@ public class TrachTube : ItemInteraction {
         }
     }
 
-    public IEnumerator innerCanullaTimer(float countdownValue = 30)
-    {
-        currCountdownValue = countdownValue;
-        while (currCountdownValue > 0)
-        {
-            Debug.Log("Countdown: " + currCountdownValue);
-            yield return new WaitForSeconds(1.0f);
-            currCountdownValue--;
-        }
-         if (innerCanullaSubmerged)
-        {
-            canullaCleaned = true;
-        }
-    }
+
 
 
 

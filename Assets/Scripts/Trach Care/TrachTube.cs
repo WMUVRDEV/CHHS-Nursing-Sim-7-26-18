@@ -34,10 +34,7 @@ public class TrachTube : ItemInteraction {
         innerCanullaVRTK.isGrabbable = true;
     }
 
-    public void CanullaInSaline()
-    {
-        StartCoroutine(StartCountdown());
-    }
+
 
     public void CanullaRemovedFromSaline()
     {
@@ -53,7 +50,7 @@ public class TrachTube : ItemInteraction {
         }
     }
 
-    public IEnumerator StartCountdown(float countdownValue = 30)
+    public IEnumerator innerCanullaTimer(float countdownValue = 30)
     {
         currCountdownValue = countdownValue;
         while (currCountdownValue > 0)

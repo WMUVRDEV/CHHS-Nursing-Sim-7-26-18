@@ -29,6 +29,7 @@ TagManager:
   - end
   - poke
   - Barcode
+  - innerCanulla
   layers:
   - Default
   - TransparentFX

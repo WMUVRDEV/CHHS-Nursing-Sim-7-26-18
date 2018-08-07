@@ -8,14 +8,11 @@ public class TrachTube : ItemInteraction {
     public GameObject oxygenMask;
     public bool oxygenMaskRemoved;
 
-    public GameObject trachClip;
-    public bool clipHeld; //should this be used or grabbed?
-
     public GameObject innerCanulla;
     public VRTK_InteractableObject innerCanullaVRTK;
     public bool innerCanullaRemoved;
     public bool canullaCleaned;
-    public GameObject outerCanulla;
+    public VRTK_InteractableObject oldGauzeUnderCanullaVRTK;
 
     public bool innerCanullaSubmerged;
 
@@ -24,15 +21,17 @@ public class TrachTube : ItemInteraction {
     void Start()
     {
         innerCanullaVRTK.isGrabbable = false;
+        oldGauzeUnderCanullaVRTK.isGrabbable = false;
     }
 
-
-    public void TrachClipHeld()
+    public void RemoveOxygenMask()
     {
-        // call this from trach clip 
-        clipHeld = true;
         innerCanullaVRTK.isGrabbable = true;
+        oldGauzeUnderCanullaVRTK.isGrabbable = true;
+        oxygenMaskRemoved = true;
     }
+
+
 
 
 

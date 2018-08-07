@@ -30,6 +30,7 @@ TagManager:
   - poke
   - Barcode
   - innerCanulla
+  - canulllaGauze
   layers:
   - Default
   - TransparentFX

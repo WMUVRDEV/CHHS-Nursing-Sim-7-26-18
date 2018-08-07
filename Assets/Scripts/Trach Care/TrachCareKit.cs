@@ -5,7 +5,7 @@ using VRTK;
 
 public class TrachCareKit : ItemInteraction {
 
-    public VRTK_InteractableObject trayCoverVRTK, cottonSwap, drape, sterileGloves, underTrachGauze;
+    public VRTK_InteractableObject trayCoverVRTK, cottonSwap, drape, sterileGloves, underTrachGauze, trachBrush;
 
     public GameObject salineFilledLiquid;
 
@@ -17,6 +17,7 @@ public class TrachCareKit : ItemInteraction {
         drape.isGrabbable = false;
         sterileGloves.isGrabbable = false;
         underTrachGauze.isGrabbable = false;
+        trachBrush.isGrabbable = false;
     }
 
 public void TrayGrabbed()
@@ -35,6 +36,7 @@ public void TrayGrabbed()
         drape.isGrabbable = true;
         cottonSwap.isGrabbable = true;
         cottonSwap.isGrabbable = true;
+        trachBrush.isGrabbable = true;
     }
 
 
